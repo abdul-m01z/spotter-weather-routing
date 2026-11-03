@@ -1,0 +1,29 @@
+# Local credentials; commit only example templates.
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# JavaScript / browser output.
+node_modules/
+dist/
+playwright-report/
+test-results/
+
+# Python / Django local output.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+db.sqlite3
+db.sqlite3-journal
+
+# Local editor / agent setup, not assessment deliverables.
+.DS_Store
+.idea/
+.agents/
+.claude/
+skills-lock.json
