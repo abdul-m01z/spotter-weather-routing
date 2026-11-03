@@ -806,7 +806,12 @@ svg {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background: radial-gradient(ellipse, #052335db, transparent 75%);
+  background: rgba(4, 23, 36, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(116, 177, 204, 0.3);
+  border-radius: 16px;
+  box-shadow: @ 16px 48px rgba(0, 0, 0, 0.3);
   padding: 38px 50px;
   pointer-events: none;
   width: 460px;

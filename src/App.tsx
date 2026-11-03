@@ -385,11 +385,6 @@ export default function App() {
                 <p>
                   Compare travel time and weather exposure in one clear view.
                 </p>
-                <div className="empty-route-lines">
-                  <i />
-                  <i />
-                  <i />
-                </div>
               </div>
             )}
           </section>
@@ -414,10 +409,6 @@ export default function App() {
               radar.
             </p>
           </details>
-          <div className="sidebar-footer">
-            <ShieldCheck size={13} />
-            <span>Weather-aware. Decision-ready.</span>
-          </div>
         </aside>
         <section className="map-area" aria-label="Routes and weather map">
           <RouteMap
@@ -450,36 +441,7 @@ export default function App() {
               <span>{result.trip.destination.label.split(",")[0]}</span>
               <small>ETA-based route risk</small>
             </div>
-          ) : (
-            !busy && (
-              <div className="map-welcome">
-                <div className="welcome-icon">
-                  <Compass size={31} strokeWidth={1.4} />
-                </div>
-                <span className="eyebrow">WEATHER, MEET YOUR ROUTE</span>
-                <h2>
-                  Your journey.
-                  <br />
-                  <span>A clearer outlook.</span>
-                </h2>
-                <p>
-                  See what’s ahead before you head out.
-                  <br />
-                  Plan a trip to compare weather-aware routes.
-                </p>
-                <div className="welcome-meta">
-                  <span>
-                    <RouteIcon size={14} />
-                    Up to 3 routes
-                  </span>
-                  <span>
-                    <CloudSun size={14} />
-                    48-hour outlook
-                  </span>
-                </div>
-              </div>
-            )
-          )}
+          ) : null}
           {busy && (
             <div className="map-loading" role="status">
               <LoaderCircle size={25} className="spin" />
