@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Map as MapboxMap, GeoJSONSource } from "mapbox-gl";
 import type { FeatureCollection } from "geojson";
-import { MapPinned } from "lucide-react";
+import { LoaderCircle, MapPinned } from "lucide-react";
 import { riskColors, routeColor, type Comparison } from "../types";
 
 const empty: FeatureCollection = { type: "FeatureCollection", features: [] };
@@ -27,6 +27,7 @@ export function RouteMap(props: Props) {
 
   useEffect(() => {
     let disposed = false;
+    let initialLoadComplete = false;
     if (!token) {
       setProblem(
         "Add VITE_MAPBOX_PUBLIC_TOKEN to .env and restart the frontend to load the map.",
@@ -72,6 +73,8 @@ export function RouteMap(props: Props) {
             setProblem(
               "Mapbox could not load the map. Check the public token and its allowed URLs.",
             );
+          else if (!initialLoadComplete)
+            setProblem("The map could not load. Check your connection and refresh the page.");
         });
         instance.on("load", () => {
           if (disposed) return;
@@ -283,6 +286,8 @@ export function RouteMap(props: Props) {
               instance.getCanvas().style.cursor = "";
             });
           }
+          initialLoadComplete = true;
+          setProblem("");
           setReady(true);
         });
       })
@@ -458,7 +463,17 @@ export function RouteMap(props: Props) {
         className="map-canvas"
         role="region"
         aria-label="Interactive route map"
+        aria-busy={!ready && !problem}
       />
+      {!ready && !problem && (
+        <div className="map-loading" role="status">
+          <LoaderCircle size={25} className="spin" />
+          <div>
+            <strong>Loading your map</strong>
+            <span>Preparing the map and road network…</span>
+          </div>
+        </div>
+      )}
       {problem && (
         <div className="map-problem" role="status">
           <MapPinned size={22} />

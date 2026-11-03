@@ -5,7 +5,6 @@ import {
   ChevronDown,
   CircleHelp,
   CloudSun,
-  Compass,
   Layers,
   LoaderCircle,
   MapPin,
@@ -40,6 +39,7 @@ export default function App() {
   const [checkpoint, setCheckpoint] = useState<number | null>(null);
   const [hour, setHour] = useState(0);
   const [weather, setWeather] = useState(true);
+  const [forecastOpen, setForecastOpen] = useState(true);
   const [busy, setBusy] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [problem, setProblem] = useState("");
@@ -423,6 +423,22 @@ export default function App() {
           <div className="map-toolbar">
             <button
               type="button"
+              className="weather-toggle forecast-toggle"
+              aria-label="Weather forecast panel"
+              aria-expanded={forecastOpen}
+              aria-controls="weather-forecast-panel"
+              title={forecastOpen ? "Hide weather forecast" : "Show weather forecast"}
+              onClick={() => setForecastOpen((value) => !value)}
+            >
+              <CloudSun size={17} />
+              <span>Forecast</span>
+              <ChevronDown
+                size={14}
+                style={{ transform: forecastOpen ? "rotate(180deg)" : undefined }}
+              />
+            </button>
+            <button
+              type="button"
               className="weather-toggle"
               role="switch"
               aria-checked={weather}
@@ -459,7 +475,9 @@ export default function App() {
               onClose={() => setCheckpoint(null)}
             />
           )}
-          <ForecastBar result={result} hour={hour} onChange={changeHour} />
+          <div id="weather-forecast-panel" hidden={!forecastOpen}>
+            <ForecastBar result={result} hour={hour} onChange={changeHour} />
+          </div>
         </section>
       </main>
     </div>

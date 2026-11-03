@@ -1400,6 +1400,9 @@ svg {
   }
 }
 @media (max-width: 700px) {
+  .forecast-toggle > span {
+    display: none;
+  }
   .app-shell {
     height: auto;
     min-height: 100dvh;
