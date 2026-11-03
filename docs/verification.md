@@ -19,4 +19,10 @@ Verified on 2026-11-03 using Python 3.12, Bun 1.4.4, Django 5.2, and Chromium th
 
 ## Hosting
 
-Vercel deployment and hosted endpoint checks are recorded here after publication. The repository includes the Vite frontend and Django Python function, same-origin API rewrite, bounded provider requests, production environment configuration, and a 4.25 MB response guard below the platform's 4.5 MB limit. No database is required.
+**Production:** https://spotter-weather-routing-beta.vercel.app
+
+- Public page and location search return HTTP 200 without requiring a Vercel login. The same-origin rewrite reaches the Django view with its original API path.
+- Hosted Dallas–Chicago comparison returned HTTP 200 in **2.05 seconds**, two routes, 66 unique samples, complete ETA coverage, and complete coverage at all 49 snapshot times. Decoded payload was approximately **1.22 MB**, served with gzip.
+- The complete browser workflow was repeated on the public production URL with real geocoding/routing/weather. It rendered route cards and the native map, inspected checkpoint details, and explored +24 hours with **zero additional API requests**, **zero uncaught JavaScript errors**, and **no horizontal overflow at 390 px**.
+- A shorter Austin–Houston journey also returned HTTP 200 in **1.59 seconds**, with two genuine alternatives and complete ETA weather coverage.
+- Pinned Python dependencies live directly in the root requirements file because Vercel's packager rejected a nested include. The deployed Vite frontend and Django Python function share one project, with bounded provider requests and a 4.25 MB response guard below the platform's 4.5 MB limit. No database or separate VPS is required.

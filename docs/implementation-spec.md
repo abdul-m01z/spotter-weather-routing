@@ -12,7 +12,7 @@ Build a single-page weather-routing dashboard in the style of the supplied locke
 
 The user selects origin, destination, departure, load weight, and checkpoint interval. Django obtains up to three genuine road-route alternatives, samples hourly weather at road-distance checkpoints using their estimated arrival times, applies the assessment's risk/load rules, and recommends the best eligible route. The map explains the result through colored route segments and checkpoint details. A separate 0–48-hour weather layer lets the user explore the corridor at a chosen absolute time without changing the trip's departure or recommendation.
 
-The goal is an impressive, interview-ready assessment app: polished visual execution, transparent calculations, graceful failure states, and a small codebase the applicant can explain. Deployment and Loom recording are follow-up work for the owner.
+The goal is an impressive, interview-ready assessment app: polished visual execution, transparent calculations, graceful failure states, and a small codebase the applicant can explain. The owner subsequently authorized full Vercel deployment as part of implementation. Loom recording remains follow-up work for the owner.
 
 ## User Stories
 
@@ -182,7 +182,7 @@ Field names may follow the project's normal JSON convention, but document the ac
 
 ## Out of Scope
 
-- Deployment, hosting setup, production domains, or Loom recording in this implementation pass. The owner will handle them later with assistance.
+- Loom recording and custom-domain setup. The owner subsequently authorized hosting the full frontend and Django API on Vercel, which is included in implementation.
 - Accounts, authentication, authorization systems, saved trips, history, databases, admin dashboards, payments, notifications, background jobs, or multi-user features.
 - Production infrastructure, distributed caches, observability platforms, Kubernetes, elaborate CI/CD, or load-testing programs.
 - Fuel pricing, profitability tools, fleet management, truck animations, and other products shown in the reference assets.
@@ -195,7 +195,7 @@ Field names may follow the project's normal JSON convention, but document the ac
 - **Source of truth:** the supplied `docs/fs-assessment-spotter.pdf` defines the assessment; `docs/visual_design_locked.png` defines the visual direction. The other images/video provide supporting branding/context, not additional product requirements. The locked reference's fixed date, route names, weather values, and route metrics are illustrative.
 - **Provider feasibility:** consult `docs/provider-notes.md` for official API references, terms/configuration caveats, and verified Open-Meteo units. Mapbox token-dependent route alternatives and map loading remain unverified until credentials are supplied. Road names for route cards may use provider summaries when available; otherwise use honest A/B/C labels, not invented interstate names.
 - **Resolved decisions:** user approved desktop design fidelity, live-provider accounts/keys without paid commitments, exclusion of No Travel routes, conservative threshold interpretations, departure-anchored snapshot exploration, and honest handling of fewer than three alternatives. The user delegated remaining routine choices and requested clarity over extra features.
-- **Repository/deliverable scope:** keep the assessment and reference assets, this spec, provider notes, app source, environment examples, lockfiles, tests, and concise setup/assumptions documentation in the owner's GitHub repository. No deployment or recording is required to finish this implementation issue. Never commit credentials or locally installed agent-skill bundles.
+- **Repository/deliverable scope:** keep the assessment and reference assets, this spec, provider notes, app source, environment examples, lockfiles, tests, and concise setup/assumptions documentation in the owner's GitHub repository. Vercel deployment was subsequently authorized and is included; Loom recording remains follow-up work. Never commit credentials or locally installed agent-skill bundles.
 - **Interview handoff:** include one short worked example explaining checkpoint ETA, risk miles, a load override, and the ranking result. Derive it from a deterministic test scenario and label it as an example. This gives the applicant evidence they can explain without adding another product feature.
 - **Suggested implementation order:** establish the route/weather domain behavior and API tests; connect live providers; build the locked visual composition; connect map selection, checkpoint details, and preloaded forecast exploration; verify errors/accessibility/responsiveness; finish setup documentation and acceptance evidence. This is one assessment implementation, not a set of speculative platform projects.
 - **Completion:** the real configured workflow works, risk/ranking invariants pass, the desktop UI convincingly follows the locked design, mobile controls remain usable, the map/slider behave smoothly, failures are honest, and all stated local gates pass. Include a concise handoff with commands run, actual live checks, and remaining credential/setup limits. Stop there.

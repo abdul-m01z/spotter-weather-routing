@@ -62,7 +62,7 @@ Use `VITE_MAPBOX_PUBLIC_TOKEN` for the browser map and `MAPBOX_ACCESS_TOKEN` in 
 
 Mapbox currently offers no-card trial access with limits. Standard access requires adding a payment method and moves the account to pay-as-you-go; trial token management is restricted. The published standard free tiers currently include 100,000 monthly Directions requests, 100,000 temporary geocoding requests, and 50,000 GL JS map loads, but these are not trial entitlements or a cost guarantee. The account owner must inspect current terms and approve any billing activation independently. [Signup/trial](https://docs.mapbox.com/accounts/guides/signup/), [demo versus standard access](https://docs.mapbox.com/accounts/guides/demo-access/), [pricing](https://www.mapbox.com/pricing).
 
-No Mapbox credentials were available, so authenticated Dallas–Chicago routing, actual alternative count, and map loading remain unverified. Missing tokens must produce actionable configuration errors, not synthetic route/weather data. Open-Meteo multi-coordinate access and returned units were verified live.
+During initial research, authenticated Mapbox calls were unverified because no credentials were available. Missing tokens must produce actionable configuration errors, not synthetic route/weather data. The subsequent implementation verification below supersedes that initial limitation.
 
 ## Implementation verification
 

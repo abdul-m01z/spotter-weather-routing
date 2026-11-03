@@ -2,6 +2,8 @@
 
 A React + Django dashboard for comparing road routes by the weather a driver will encounter **at each checkpoint's arrival time**. Built for the Spotter.ai full-stack assessment, following the supplied dark navy/teal visual reference.
 
+**[Open the live app](https://spotter-weather-routing-beta.vercel.app)** — React and Django are hosted together on Vercel.
+
 Enter two US locations, departure, load weight, and a 10/25/50-mile sampling interval. Compare genuine alternatives, inspect ETA weather and restrictions, and explore a preloaded 48-hour corridor forecast. Recommendations are deterministic and explainable; no AI scoring or invented route/weather data.
 
 ## Run locally
