@@ -1,0 +1,13 @@
+.env*
+!.env.example
+.venv
+node_modules
+.agents
+.claude
+.git
+docs
+tests
+test-results
+playwright-report
+**/__pycache__
+backend/routing/tests.py
