@@ -10,7 +10,7 @@ Requires **Python 3.12+** and **Bun**. No database, migrations, or additional in
 
 ```bash
 python3 -m venv .venv
-.venv/bin/pip install -r backend/requirements.txt
+.venv/bin/pip install -r requirements.txt
 bun install --frozen-lockfile
 cp .env.example .env
 ```

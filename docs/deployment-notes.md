@@ -6,7 +6,7 @@ Checked 2026-11-03 against Vercel and Django primary sources. Keep the existing 
 
 Use the Vite preset, build `bun run build`, output `dist`, and add an explicit Python function. This avoids changing Django into the frontend server or introducing Vercel Services. Vercel supports Python WSGI applications exporting `application`, and installs Python dependencies from a root `requirements.txt` ([Python runtime](https://vercel.com/docs/functions/runtimes/python)).
 
-Root `requirements.txt` can contain `-r backend/requirements.txt`, preserving the existing pinned dependencies. Add `.python-version` containing `3.12` for a known supported interpreter. Do not add Gunicorn: Vercel hosts the WSGI callable.
+Keep the pinned dependencies directly in root `requirements.txt`. The actual Vercel deployment rejected a nested requirements include, so the root file is the single canonical dependency list. Add `.python-version` containing `3.12` for a known supported interpreter. Do not add Gunicorn: Vercel hosts the WSGI callable.
 
 Suggested `api/index.py`:
 
