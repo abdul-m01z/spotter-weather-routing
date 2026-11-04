@@ -320,10 +320,12 @@ svg {
   background: #ffffff08;
 }
 .compare-button {
-  display: flex;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) 20px;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   gap: 9px;
+  padding: 0 12px;
   width: 100%;
   height: 44px;
   border-radius: 6px;
@@ -336,12 +338,6 @@ svg {
   transition:
     filter 0.15s,
     transform 0.15s;
-}
-.compare-button svg:last-child {
-  margin-left: auto;
-}
-.compare-button svg:first-child {
-  margin-right: auto;
 }
 .compare-button:hover {
   filter: brightness(1.1);
