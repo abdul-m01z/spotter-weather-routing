@@ -1,6 +1,8 @@
 # Spotter Weather Routing
+<img width="1920" height="1016" alt="image" src="https://github.com/user-attachments/assets/786622e7-3d02-4079-9263-570fb66d8993" />
 
-A React + Django dashboard for comparing road routes by the weather a driver will encounter **at each checkpoint's arrival time**. Built for the Spotter.ai full-stack assessment, following the supplied dark navy/teal visual reference.
+
+A React + Django dashboard for comparing road routes by the weather a driver will encounter **at each checkpoint's arrival time**. Built for the Spotter.ai full-stack assessment
 
 **[Open the live app](https://spotter-weather-routing-beta.vercel.app)** — React and Django are hosted together on Vercel.
 
